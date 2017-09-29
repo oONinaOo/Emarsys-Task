@@ -17,7 +17,10 @@ namespace Emarsys
 
         public void addDestination(Destination next, Destination previous)
         {
-
+            if (!(next.getName() is string) || !(previous.getName() is string))
+            {
+                throw new Exception("Invalid input");
+            }
             if (destinationRoutes.Contains(next) && !destinationRoutes.Contains(previous))
             {
                 next.setDestination(previous);
